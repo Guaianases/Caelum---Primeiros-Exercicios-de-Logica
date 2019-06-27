@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../Funçoes/pegaNumero.js"></script>
+    <script src="https://rawgit.com/caelum/projeto01/fichaAcademiaComInterfaceGrafica/apostilaIgnore/libBrasil.js"></script>
+    <script src= "https://rawgit.com/caelum/projeto01/fichaAcademiaComInterfaceGrafica/apostilaIgnore/mostra.js"></script>
+    <script src=  "https://rawgit.com/caelum/projeto01/calculoIdade/apostilaIgnore/libIdade.js"></script>
+
+</head>
+<body>
+    Nome 
+    <br>
+    <input type="text" id="campoNome">
+    <br>
+    Peso    
+    <br>
+    <input type="text" id="campoPeso">
+    <br>
+    Idade
+    <br>
+    <input type="text" id="campoAltura">
+    <br>
+    Data de nascimento
+    <br>
+    <input type="text" id="campoDatadenascimento">
+    <br>
+    <button onclick="criarficha()">
+        Enviar
+    </button>
+    <script>
+    // solicita dados
+        function criarficha(){
+        let nome = parseFloatBrasil(campoNome.value);
+        let peso = parseFloatBrasil(campoPeso.value);
+        let altura = campoAltura.value;
+        let dataNascimento = campoDatadenascimento.value;
+            //exibe dados
+
+            mostra(`
+            Nome: ${nome}
+            <br>
+            peso: ${formataFloatBrasil(peso)} Kg
+            Altura: ${formataFloatBrasil(altura)} metros
+            <br>    
+            Data de Nacimento: ${dataNascimento} 
+            `)
+        }
+
+    </script> 
+</body>
+</html>
