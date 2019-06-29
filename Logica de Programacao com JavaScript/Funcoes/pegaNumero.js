@@ -1,6 +1,7 @@
-function pegaNumero(mensagem) {
 
-    return parseFloat(prompt(mensagem).replace(",", "."))
+  function peganumero(mensagem, num = 2) {
+
+    return parseFloat(prompt(mensagem).toFixed(num).replace(",", "."));
   
   
   }
