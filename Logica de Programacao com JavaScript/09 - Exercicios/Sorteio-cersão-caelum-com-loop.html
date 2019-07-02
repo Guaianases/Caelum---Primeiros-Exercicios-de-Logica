@@ -22,25 +22,34 @@
     </button>
 
     <script>
-        let tentativa = 5;
-        function criarficha(){
-            
-        while (tentativa >= 1){
-            let num = parseInt(campoNum.Value);
-            if (num >= 1 || num <= 10){
+       
+       let tentativa = 5
+
+        function criarficha() {
+          
+
+            if (tentativa == 0) {
+            alert("Você esgotou o número de tentativas. Compre mais fichas para continuar jogando")
+            return
+        }
+
+        while (tentativa > 0){ //Tentativas
+            let num = parseInt(campoNum.value);
+            if (num < 1 || num > 10 || isNaN(num)){
 
                 alert("Favor testar um número entre 1 a 10");
                 return
-            }else{
-            let valor = parseInt((Math.random()*10)+1);
 
+            }
+            let valor = parseInt((Math.random()*10)+1);
+            console.log("Número sorteado: ", valor)
                 if (valor == num){
 
                     mostra('Você acertou ');
-                   
-                    
+                    tentativa++
+                    alert("Parabéns você ganhou mais uma tentativa ");
 
-                }else if(valor != num){
+                }else{
 
                     mostra(`
                     Você errou o numero era: ${valor}
@@ -48,17 +57,18 @@
                     `);
             }
             tentativa--
-            if (valor == num ){
-                tentativa++
-                alert("Parabéns você ganhou mais uma tentativa ")
-                    
-
+          
+            if (tentativa > 0) {
+                mostra(`
+                    Você ainda tem ${tentativa} tentativas
+                `)
+            } else {
+                alert("Você esgotou o número de tentativas")
             }
-            mostra(`Você tem ${tentativa}  tentativa`);
             break
         }
     }
-}
+
     </script>
     <hr>
 </body>
